@@ -1,0 +1,15 @@
+name: RPreview
+version: ${project.version}
+main: com.gamerking195.dev.rpreview.RPreview
+authors: [GamerKing195]
+description: Plugin for testing resourcepacks.
+website: http://gamerking195.com
+commands:
+  rpreview:
+    description: Base command for RPreview.
+  rpr:
+    description: Alias for /rpreview.
+permissions:
+  rpreview.use:
+    default: op
+    description: Gives access to the /rpreview and /rpr commands.
