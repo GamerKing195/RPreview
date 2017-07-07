@@ -91,7 +91,7 @@ public class RPreviewCommand implements CommandExecutor {
 
     private void sendHelp(Player player) {
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f&m-----------------------"));
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&2&lRPreview &fV"+ RPreview.getInstance().getDescription().getVersion()+" &aby &f"+ RPreview.getInstance().getDescription().getAuthors()));
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&2&lRPreview &fV"+ RPreview.getInstance().getDescription().getVersion()+" &aby &f"+ RPreview.getInstance().getDescription().getAuthors().toString().replace("[", "").replace("]", "")));
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a/rpreview [toggle:enable:disable] | &fEnables or disables resource pack testing mode."));
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a/rpreview set [amount] | &fSets your current items durability to that amount."));
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a/rpreview update | &fUpdates the plugin to the latest version."));

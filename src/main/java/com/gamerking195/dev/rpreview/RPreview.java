@@ -16,7 +16,7 @@ public final class RPreview extends JavaPlugin {
     private static RPreview instance;
 
     @Getter
-    private int resourceId = 0;
+    private int resourceId = 43475;
 
     private Logger log = getLogger();
 
