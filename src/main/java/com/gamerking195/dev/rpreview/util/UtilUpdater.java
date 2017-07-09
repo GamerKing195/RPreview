@@ -5,6 +5,7 @@ import com.gamerking195.dev.rpreview.RPreview;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -36,10 +37,14 @@ public class UtilUpdater {
         return instance;
     }
 
+    @Getter
     private String latestVersion;
+    @Getter
     private String updateInfo;
+    @Getter
     private List<String> testedVersions;
 
+    @Getter
     private boolean updateAvailable;
     private boolean updating;
 
@@ -127,7 +132,7 @@ public class UtilUpdater {
                 StringBuilder sb = new StringBuilder();
 
                 while (match.find())
-                    sb.append(ChatColor.WHITE).append(" - ").append(match.group(1)).append("\n");
+                    sb.append(ChatColor.GREEN).append(" - ").append(match.group(1)).append("\n");
 
                 updateInfo = sb.toString();
             }
@@ -208,18 +213,6 @@ public class UtilUpdater {
                 sendActionBar(initiator, ChatColor.translateAlternateColorCodes('&', "&f&lUPDATING &1&lRPreview &b&lV" + plugin.getDescription().getVersion() + " &b&l» &1&lV" + latestVersion + " &8[&c&lUPDATE FAILED &7&o(Check Console)&8]"));
             }
         }
-    }
-
-    /*
-     * GETTERS
-     */
-
-    public String getLatestVersion() {
-        return latestVersion;
-    }
-
-    public boolean isUpdateAvailable() {
-        return updateAvailable;
     }
 
     /*

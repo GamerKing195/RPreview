@@ -2,6 +2,7 @@ package com.gamerking195.dev.rpreview;
 
 import com.gamerking195.dev.rpreview.command.RPreviewCommand;
 import com.gamerking195.dev.rpreview.listener.PlayerInteractListener;
+import com.gamerking195.dev.rpreview.listener.PlayerJoinListener;
 import com.gamerking195.dev.rpreview.util.UtilUpdater;
 import lombok.Getter;
 import org.bstats.Metrics;
@@ -24,6 +25,7 @@ public final class RPreview extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), instance);
         Bukkit.getPluginManager().registerEvents(new PlayerInteractListener(), instance);
 
         this.getCommand("rpreview").setExecutor(new RPreviewCommand());
