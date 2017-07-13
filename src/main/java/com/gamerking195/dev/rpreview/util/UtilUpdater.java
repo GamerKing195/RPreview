@@ -67,7 +67,8 @@ public class UtilUpdater {
                         if (player.isOp() || player.hasPermission("rpreview.use")) {
                             String currentVersion = RPreview.getInstance().getDescription().getVersion();
                             String mcVersion = Bukkit.getServer().getClass().getPackage().getName();
-                            mcVersion = mcVersion.substring(mcVersion.lastIndexOf(".") + 1).substring(1, mcVersion.length()-3).replace("_", ".");
+                            mcVersion = mcVersion.substring(mcVersion.lastIndexOf(".") + 1);
+                            mcVersion = mcVersion.substring(1, mcVersion.length()-3).replace("_", ".");
 
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f&m------------------------------"));
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&2&lRPReview &aV" + currentVersion + " &eby &a" + RPreview.getInstance().getDescription().getAuthors()));
