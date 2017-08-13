@@ -6,7 +6,7 @@
 
     <groupId>com.gamerking195.dev</groupId>
     <artifactId>RPreview</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
 
     <name>RPreview</name>
@@ -76,9 +76,9 @@
         </repository>
         <!-- GamerKing195 Resources -->
         <repository>
-            <id>GK195-res</id>
-            <name>GamerKing195-Resources</name>
-            <url>http://api.gamerking195.com/archiva/repository/GK195-res/</url>
+            <id>GK195-pub</id>
+            <name>GamerKing195-Public</name>
+            <url>http://api.gamerking195.com/archiva/repository/GK195-pub/</url>
         </repository>
     </repositories>
 
@@ -107,7 +107,7 @@
         <dependency>
             <groupId>com.gamerking195.dev</groupId>
             <artifactId>AutoUpdaterAPI</artifactId>
-            <version>2.0.1</version>
+            <version>2.1.1</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

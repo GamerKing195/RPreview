@@ -202,7 +202,7 @@ public class UtilUpdater {
                 UpdateLocale locale = new UpdateLocale();
 
                 locale.setUpdating("&eUPDATING &2&l%plugin% &aV%old_version% &e&l» &a%new_version%");
-                locale.setUpdateComplete("&eUPDATED &2&l%plugin% &eTO &aV%new_version%");
+                locale.setUpdateComplete("&eUPDATED &2&l%plugin% &eTO &aV%new_version% &7&o(%elapsed_time%s)");
                 locale.setUpdatingDownload("&eUPDATING &2&l%plugin% &aV%old_version% &e&l» &aV%new_version% &8| %download_bar% &8| &a%download_percent%&e%");
 
                 locale.setFileName("RPreview-" + latestVersion);
