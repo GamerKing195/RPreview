@@ -3,6 +3,7 @@ import com.gamerking195.dev.autoupdaterapi.UpdateLocale;
 import com.gamerking195.dev.autoupdaterapi.Updater;
 import com.gamerking195.dev.rpreview.RPreview;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import lombok.Getter;
@@ -121,9 +122,11 @@ public class UtilUpdater {
 
                 //Update description
 
-                JsonObject latestUpdateObject = gson.fromJson(readFrom("https://api.spiget.org/v2/resources/"+RPreview.getInstance().getResourceId()+"/updates/latest"), objectType);
+                Type arrayType = new TypeToken<JsonArray>(){}.getType();
 
-                String descriptionBase64 = gson.fromJson(latestUpdateObject.get("description"), new TypeToken<String>(){}.getType());
+                JsonArray latestUpdateObject = gson.fromJson(UtilReader.readFrom("https://api.spiget.org/v2/resources/"+RPreview.getInstance().getResourceId()+"/updates?size=1&sort=-date"), arrayType);
+
+                String descriptionBase64 = gson.fromJson(latestUpdateObject.get(0).getAsJsonObject().get("description"), new TypeToken<String>(){}.getType());
                 String decodedDescription = new String(Base64.getDecoder().decode(descriptionBase64));
 
                 Pattern pat = Pattern.compile("<li>(.*)</li>");
@@ -165,7 +168,7 @@ public class UtilUpdater {
                     long completeFileSize = httpConnection.getContentLength();
 
                     BufferedInputStream in = new BufferedInputStream(httpConnection.getInputStream());
-                    FileOutputStream fos = new FileOutputStream(new File(plugin.getDataFolder().getPath().substring(0, plugin.getDataFolder().getPath().lastIndexOf("/")) + "/AutoUpdaterAPI.jar"));
+                    FileOutputStream fos = new FileOutputStream(new File(plugin.getDataFolder().getParentFile().getPath() + "/AutoUpdaterAPI.jar"));
                     BufferedOutputStream bout = new BufferedOutputStream(fos, 1024);
 
                     byte[] data = new byte[1024];
